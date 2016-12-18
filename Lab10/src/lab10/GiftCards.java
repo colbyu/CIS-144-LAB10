@@ -46,7 +46,7 @@ public class GiftCards
         {
         balance = b;
         }
-        public String getHolder()
+    public String getHolder()
         {
         return holder;
         }

@@ -4,19 +4,20 @@ import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Calendar;
 //Colby Undeerhill
 
 public class GiftCards
     {
     static NumberFormat nf = NumberFormat.getCurrencyInstance();
     DateFormat dateForm = new SimpleDateFormat("MM/dd/yyyy");
+    Calendar cal = Calendar.getInstance();
     Date today = new Date();
     // define the class data members
     public boolean expires;
     private double balance;
     public int cardNum;
-    private char cardType;
+    private String cardType;
     public String issueDate;
     private String holder;
     // define the member methods
@@ -35,6 +36,7 @@ public class GiftCards
         System.out.println(" Today's Date is: " + dateForm.format(today));
         System.out.println(" Card Holder . . . " + holder);
         System.out.println(" Card Number . . . " + cardNum);
+        System.out.println(" Card Type . . . " + cardType);
         System.out.println(" Card Amount . . . " + 
             NumberFormat.getCurrencyInstance().format(balance));
         }
@@ -54,6 +56,14 @@ public class GiftCards
         {
         holder = h;
         }
+    public String getCardType()
+        {
+        return cardType;
+        }
+    public void setCardType(String t)
+        {
+        cardType = t;
+        }
     public void printCurrentGiftCardInfo(double spend)
         {
         System.out.println("");
@@ -64,6 +74,9 @@ public class GiftCards
             NumberFormat.getCurrencyInstance().format(spend));
         System.out.println(" Card Amount . . . " +
             NumberFormat.getCurrencyInstance().format(balance - spend));
+        cal.add(Calendar.YEAR, 1);
+        System.out.println(" Gift card expires in EXACTLY one year. No exceptions. ");
+        System.out.println(" Expiration Date is: " + cal.getTime());
         }
     }
 
